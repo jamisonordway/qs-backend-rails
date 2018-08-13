@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is the back-end calorie tracker API which serves up data for a JavaScript front-end, which you can find [here](https://github.com/jamisonordway/qs-frontend-starter).
 
-Things you may want to cover:
+This API has been deployed to [Heroku](https://qs-rails-backend.herokuapp.com/).
 
-* Ruby version
 
-* System dependencies
+### Food Endpoints
 
-* Configuration
+`GET /api/v1/foods`
+Returns all foods in the database
 
-* Database creation
+`GET /api/v1/foods/:id`
+Returns a single food by ID
 
-* Database initialization
+`POST /api/v1/foods`
+Creates a new food
 
-* How to run the test suite
+`DELETE /api/v1/foods/:id`
+Deletes a food 
 
-* Services (job queues, cache servers, search engines, etc.)
+`PATCH /api/v1/foods/:id`
+Updates a food
 
-* Deployment instructions
+### Meal Endpoints
 
-* ...
+`GET /api/v1/meals`
+Returns all meals (and foods) in the database
+
+`GET /api/v1/meals/:meal_id/foods`
+Returns all of the foods for a single meal by meal_id
+
+`POST /api/v1/meals/:meal_id/foods/:id`
+Adds a specified food to a specified meal
+
+`DELETE /api/v1/meals/:meal_id/foods/:id `
+Removes a specified mood from a specified meal
