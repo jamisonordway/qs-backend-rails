@@ -1,8 +1,8 @@
 # README
 
-This application is the back-end calorie tracker API which serves up data for a JavaScript front-end, which you can find here.
+This application is the back-end calorie tracker API which serves up data for a JavaScript front-end, which you can find [here](https://github.com/jamisonordway/qs-frontend-starter).
 
-This API has been deployed to Heroku.
+This API has been deployed to [Heroku](https://qs-rails-backend.herokuapp.com/).
 
 
 ### Food Endpoints
