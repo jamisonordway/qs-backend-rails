@@ -59,10 +59,24 @@ describe 'Foods API' do
     patch "/api/v1/foods/#{food.id}", params: food_params
     
     expect(response).to be_successful
+
     updated_food = Food.last
+
     expect(updated_food.id).to eq(food.id)
     expect(updated_food.name).to eq("Taco Palenque Tacos")
     expect(updated_food.calories).to eq(8000)
     expect(updated_food.name).to_not eq(food.name)
+  end
+  it 'will return a 400 error if food cannot be updated' do
+    food = create(:food)
+    bad_food_params = {food: {blah: 'ok'}}
+    patch "/api/v1/foods/#{food.id - 1}", params: bad_food_params
+    # binding.pry
+    expect(response.status).to eq(400)
+
+    updated_food = Food.last
+    
+    expect(updated_food.id).to eq(food.id)
+    expect(updated_food.name).to eq(food.name)
   end
 end
