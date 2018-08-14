@@ -40,4 +40,29 @@ describe 'Foods API' do
     expect(response).to be_successful
     expect(Food.count).to eq(1)
   end
+  it 'returns 400 status code if food is not successfully created' do
+    no_calories = {food: {name: "bowl of air"}}
+    post '/api/v1/foods', params: no_calories
+
+    expect(response.status).to eq(400)
+    expect(Food.count).to eq(0)
+
+    no_name = {food: {calories: 300}}
+    post '/api/v1/foods', params: no_name
+    
+    expect(response.status).to eq(400)
+    expect(Food.count).to eq(0)
+  end
+  it 'can update a food' do
+    food = create(:food)
+    food_params = {food: {name: "Taco Palenque Tacos", calories: 8000}}
+    patch "/api/v1/foods/#{food.id}", params: food_params
+    
+    expect(response).to be_successful
+    updated_food = Food.last
+    expect(updated_food.id).to eq(food.id)
+    expect(updated_food.name).to eq("Taco Palenque Tacos")
+    expect(updated_food.calories).to eq(8000)
+    expect(updated_food.name).to_not eq(food.name)
+  end
 end
