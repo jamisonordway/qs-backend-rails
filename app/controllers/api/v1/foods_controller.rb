@@ -22,6 +22,14 @@ class Api::V1::FoodsController < ApplicationController
     end
   end
 
+  def update
+    food = Food.find_by_id(params[:id])
+    if food.nil?
+      render json: { message: "This food could not be saved. Please try again"}, status: 400
+    else
+      food.update(food_params)
+    end
+  end
 
   private
 
