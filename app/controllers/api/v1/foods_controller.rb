@@ -34,6 +34,15 @@ class Api::V1::FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    food = Food.find_by_id(params[:id])
+    if food.nil?
+      render json: { message: "This food could not be found. Please try again"}, status: 404
+    else
+      food.destroy and return 204
+    end
+  end
+
   private
 
   def food_params
