@@ -67,7 +67,7 @@ describe 'Foods API' do
     expect(updated_food.calories).to eq(8000)
     expect(updated_food.name).to_not eq(food.name)
   end
-  it 'will return a 400 error if food cannot be updated' do
+  it 'returns a 400 error if food cannot be updated' do
     food = create(:food)
     bad_food_params = {food: {blah: 'ok'}}
     patch "/api/v1/foods/#{food.id - 1}", params: bad_food_params
@@ -78,5 +78,20 @@ describe 'Foods API' do
     
     expect(updated_food.id).to eq(food.id)
     expect(updated_food.name).to eq(food.name)
+  end
+  it 'can delete a food and return a 204' do
+    food = create(:food)
+    expect(Food.count).to eq(1)
+
+    delete "/api/v1/foods/#{food.id}"
+    
+    expect(response).to eq(204)
+    expect(Food.count).to eq(0)
+  end
+  it 'returns a 404 status code if food cannot be deleted' do
+    delete '/api/v1/foods/5'
+
+    expect(response.status).to eq(404)
+    expect(Food.count).to eq(0)
   end
 end
