@@ -85,7 +85,7 @@ describe 'Foods API' do
 
     delete "/api/v1/foods/#{food.id}"
     
-    expect(response).to eq(204)
+    expect(response.status).to eq(204)
     expect(Food.count).to eq(0)
   end
   it 'returns a 404 status code if food cannot be deleted' do
