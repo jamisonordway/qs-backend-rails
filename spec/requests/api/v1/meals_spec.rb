@@ -38,7 +38,7 @@ describe "Meal API" do
     expected = {
       id: @meal_1.id,
       name: @meal_1.name,
-      foods: [@food_3]
+      foods: [@food_1, @food_2]
     }
 
     get "/api/v1/meals/#{@meal_1.id}/foods"
