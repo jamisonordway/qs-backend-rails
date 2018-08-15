@@ -18,7 +18,7 @@ class Api::V1::FoodsController < ApplicationController
     if food.save
       render json: food
     else
-      render json: { message: "This food could not be saved. Please try again"}, status: 400
+      render status: 400, json: {}
     end
   end
 
