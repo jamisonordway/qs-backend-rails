@@ -14,5 +14,4 @@ class Api::V1::MealFoodsController < ApplicationController
       end
     end
   end
-
 end
