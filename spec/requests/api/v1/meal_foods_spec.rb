@@ -53,13 +53,13 @@ RSpec.describe "Meal foods api" do
 
     delete "/api/v1/meals/#{@meal_1.id}/foods/#{@food_1.id + 1}"
     expect(response.status).to eq(404)
-    expect(response.body).to eq({ error: 'This meal could not be found. Please try again'}.to_json)
+    expect(response.body).to eq({ error: 'This food could not be found. Please try again'}.to_json)
   end
   it 'returns a 404 if the meal is not found' do
     meal_food = MealFood.create!(meal: @meal_1, food: @food_1)
 
     delete "/api/v1/meals/#{@meal_1.id + 1}/foods/#{@food_1.id}"
     expect(response.status).to eq(404)
-    expect(response.body).to eq({ error: 'This food could not be found. Please try again'}.to_json)
+    expect(response.body).to eq({ error: 'This meal could not be found. Please try again'}.to_json)
   end
 end
