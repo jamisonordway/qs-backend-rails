@@ -48,4 +48,14 @@ class Api::V1::FoodsController < ApplicationController
   def food_params
     params.require(:food).permit(:name, :calories)
   end
+
+ # working on a refactor, but currently, this breaks the 400 response on line 32
+
+  # def messages
+  #   {not_found: "This food could not be found.", not_saved: "This food could not be saved."}
+  # end
+
+  # def codes
+  #   {not_found: 404, not_saved: 400}
+  # end
 end

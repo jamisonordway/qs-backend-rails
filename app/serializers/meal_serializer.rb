@@ -4,5 +4,4 @@ class MealSerializer < ActiveModel::Serializer
   def foods 
     object.foods
   end
-
 end
