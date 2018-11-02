@@ -183,7 +183,7 @@ Example output:
 
 ### Contributing
 
-To interact with the front end locally, clone down the [front end repository]((https://github.com/jamisonordway/qs-frontend-starter) and follow instructions for setup.
+To interact with the front end locally, clone down the [front end repository](https://github.com/jamisonordway/qs-frontend-starter) and follow instructions for setup.
 
 Next, fork and clone this repo. To setup and run the rails server:
 
