@@ -46,7 +46,7 @@ class Api::V1::FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:name, :calories)
+    params.permit(:name, :calories)
   end
 
  # working on a refactor, but currently, this breaks the 400 response on line 32
